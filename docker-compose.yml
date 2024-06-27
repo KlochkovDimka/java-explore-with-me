@@ -1,26 +1,21 @@
-version: '3.8'
+version: '3.1'
 
 services:
   ewm-service:
-    build:
-      context: main-server
-      dockerfile: Dockerfile
-    image: ewm-service:latest
+    build: main-server
     container_name: main-server
     ports:
       - "8080:8080"
     depends_on:
       - ewm-db
     environment:
+      - STATS_SERVER_URL=http://stats-server:9090
       - SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm-db
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
 
   stats-server:
-    build:
-      context: stateService/httpService
-      dockerfile: Dockerfile
-    image: stats-server:latest
+    build: stateService/httpService
     container_name: stateService
     ports:
       - "9090:9090"
