@@ -14,9 +14,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>httpService</module>
         <module>httpClient</module>
         <module>stateServiceDto</module>
+        <module>httpService</module>
     </modules>
 
     <properties>
