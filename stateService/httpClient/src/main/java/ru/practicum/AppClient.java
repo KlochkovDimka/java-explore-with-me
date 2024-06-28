@@ -1,7 +1,6 @@
 package ru.practicum;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -17,14 +16,11 @@ import java.util.Objects;
 @Slf4j
 public class AppClient extends BaseClient {
 
-
-
-    public AppClient(@Value("${state-server.url}") String serverUrl, RestTemplateBuilder builder) {
+    public AppClient(RestTemplateBuilder builder) {
         super(builder
                 .uriTemplateHandler(new DefaultUriBuilderFactory("http://localhost:9090"))
                 .requestFactory(HttpComponentsClientHttpRequestFactory::new)
                 .build());
-        log.info("--------------------------------------------------------" + serverUrl);
     }
 
     public ResponseEntity<Object> createApp(Objects appDtoReq) {
