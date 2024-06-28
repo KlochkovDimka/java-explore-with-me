@@ -1,7 +1,9 @@
 package ru.practicum.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.appDto.AppDtoReq;
 import ru.practicum.appDto.AppDtoResp;
 import ru.practicum.mapper.AppMapper;
@@ -15,6 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ServiceHttpImpl implements ServiceHttp {
 
     private final AppRepository appRepository;
@@ -22,10 +25,13 @@ public class ServiceHttpImpl implements ServiceHttp {
     @Override
     public Collection<AppDtoResp> save(AppDtoReq appDtoReq) {
         AppInfo appInfo = AppMapper.convertToAppInfo(appDtoReq);
+        appInfo.setTimestamp(LocalDateTime.now());
+        appRepository.save(appInfo);
         return List.of(AppMapper.convertToAppDtoResp(appInfo));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Collection<AppDtoResp> getStets(LocalDateTime start, LocalDateTime end, Collection<String> uris, boolean unique) {
         if (unique) {
             if (uris != null) {

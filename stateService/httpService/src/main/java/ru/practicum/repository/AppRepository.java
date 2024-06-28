@@ -16,7 +16,8 @@ public interface AppRepository extends JpaRepository<AppInfo, Long> {
             "FROM AppInfo a " +
             "WHERE a.uri IN :uris " +
             "AND a.timestamp BETWEEN :start AND :end " +
-            "GROUP BY a.app, a.uri")
+            "GROUP BY a.app, a.uri " +
+            "ORDER BY COUNT(a.ip) DESC")
     Collection<AppDtoResp> findByUris(Collection<String> uris,
                                       LocalDateTime start,
                                       LocalDateTime end);
@@ -24,7 +25,8 @@ public interface AppRepository extends JpaRepository<AppInfo, Long> {
     @Query("SELECT new ru.practicum.appDto.AppDtoResp(a.app, a.uri, COUNT(a.ip)) " +
             "FROM ru.practicum.model.AppInfo a " +
             "WHERE a.timestamp BETWEEN :start AND :end " +
-            "GROUP BY a.app, a.uri")
+            "GROUP BY a.app, a.uri " +
+            "ORDER BY COUNT(a.ip) DESC")
     Collection<AppDtoResp> findByTimestampBetween(LocalDateTime start,
                                                   LocalDateTime end);
 
@@ -32,7 +34,8 @@ public interface AppRepository extends JpaRepository<AppInfo, Long> {
             "FROM AppInfo a " +
             "WHERE a.uri IN :uris " +
             "AND a.timestamp BETWEEN :start AND :end " +
-            "GROUP BY a.app, a.uri")
+            "GROUP BY a.app, a.uri " +
+            "ORDER BY COUNT(a.ip) DESC")
     Collection<AppDtoResp> findByFalseUniqueIpAndTimestampBetween(LocalDateTime start,
                                                                   LocalDateTime end);
 
@@ -40,7 +43,8 @@ public interface AppRepository extends JpaRepository<AppInfo, Long> {
             "FROM AppInfo a " +
             "WHERE a.uri IN :uris " +
             "AND a.timestamp BETWEEN :start AND :end " +
-            "GROUP BY a.app, a.uri")
+            "GROUP BY a.app, a.uri " +
+            "ORDER BY COUNT(a.ip) DESC")
     Collection<AppDtoResp> findByTrueUniqueIpAndUrisAndTimestamp(Collection<String> uris,
                                                                  LocalDateTime start,
                                                                  LocalDateTime end);
