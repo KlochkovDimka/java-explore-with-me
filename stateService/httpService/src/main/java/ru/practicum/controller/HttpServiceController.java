@@ -18,6 +18,8 @@ import java.util.Collection;
 @Slf4j
 public class HttpServiceController {
 
+    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     private final ServiceHttp httpService;
 
     @PostMapping("/hit")
@@ -26,8 +28,8 @@ public class HttpServiceController {
     }
 
     @GetMapping("/stats")
-    public Collection<AppDtoResp> getStats(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime start,
-                                           @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime end,
+    public Collection<AppDtoResp> getStats(@RequestParam @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime start,
+                                           @RequestParam @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime end,
                                            @RequestParam(required = false) Collection<String> uris,
                                            @RequestParam(defaultValue = "false") boolean unique) {
         return httpService.getStets(start, end, uris, unique);
