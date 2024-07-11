@@ -11,6 +11,7 @@ import ru.practicum.model.AppInfo;
 import ru.practicum.repository.AppRepository;
 import ru.practicum.service.ServiceHttp;
 
+import javax.validation.ValidationException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -33,7 +34,13 @@ public class ServiceHttpImpl implements ServiceHttp {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<AppDtoResp> getStets(LocalDateTime start, LocalDateTime end, Collection<String> uris, boolean unique) {
+    public Collection<AppDtoResp> getStets(LocalDateTime start,
+                                           LocalDateTime end,
+                                           Collection<String> uris,
+                                           boolean unique) {
+        if (start.isAfter(end)) {
+            throw new ValidationException("Error date");
+        }
         if (unique) {
             if (uris != null) {
                 return appRepository.findByTrueUniqueIpAndUrisAndTimestamp(uris, start, end);

@@ -3,6 +3,7 @@ package ru.practicum.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.appDto.AppDtoReq;
@@ -23,6 +24,7 @@ public class HttpServiceController {
     private final ServiceHttp httpService;
 
     @PostMapping("/hit")
+    @ResponseStatus(HttpStatus.CREATED)
     public Collection<AppDtoResp> postApp(@RequestBody AppDtoReq dto) {
         return httpService.save(dto);
     }
