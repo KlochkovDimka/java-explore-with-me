@@ -39,7 +39,7 @@ public class ServiceHttpImpl implements ServiceHttp {
                                            Collection<String> uris,
                                            boolean unique) {
         if (start.isAfter(end)) {
-            throw new ValidationException("Error date");
+            throw new ValidationException("Error time");
         }
         if (unique) {
             if (uris != null) {
