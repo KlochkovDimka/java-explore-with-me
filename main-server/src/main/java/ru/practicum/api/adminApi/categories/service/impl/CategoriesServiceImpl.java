@@ -42,7 +42,6 @@ public class CategoriesServiceImpl implements CategoriesService {
         return CategoryMapper.convertToCategoryDto(categoryRepository.save(category));
     }
 
-    @Transactional(readOnly = true)
     private void isCategory(Long catId) {
         categoryRepository.findById(catId).orElseThrow(() ->
                 new NotFoundEntity("Category id=" + catId));

@@ -54,11 +54,10 @@ public class AdminEventsServiceImpl implements AdminEventsService {
     public EventFulDto updateEventById(Long eventId, UpdateEventAdminRequest eventRequest) {
         Event event = isEvent(eventId);
 
-        if (eventRequest.getEventDate() != null) {
-            if (eventRequest.getEventDate().isBefore(event.getPublishedOn().plusHours(1))) {
-                throw new IncorrectlyRequestException("The start date of the event to be " +
-                        "modified must be no earlier than one hour from the date of publication");
-            }
+        if (eventRequest.getEventDate() != null
+                && eventRequest.getEventDate().isBefore(event.getPublishedOn().plusHours(1))) {
+            throw new IncorrectlyRequestException("The start date of the event to be " +
+                    "modified must be no earlier than one hour from the date of publication");
         }
         if (!event.getState().equals(State.PENDING.toString())) {
             throw new ViolationOfRestrictionException("An event can be published only if it is in " +
@@ -68,11 +67,9 @@ public class AdminEventsServiceImpl implements AdminEventsService {
         Event newEvent = updateEventField(event, eventRequest);
 
         if (eventRequest.getStateAction() != null) {
-            if (eventRequest.getStateAction().equals(StateAction.PUBLISH_EVENT.name())) {
-                newEvent.setState(State.PUBLISHED.name());
-            } else {
-                newEvent.setState(State.CANCELED.name());
-            }
+            newEvent.setState(eventRequest.getStateAction().equals(StateAction.PUBLISH_EVENT.name())
+                    ? State.PUBLISHED.name()
+                    : State.CANCELED.name());
         }
         return EventsMapper.convertToEventFullDto(
                 repository.save(newEvent));
