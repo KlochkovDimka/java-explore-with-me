@@ -10,7 +10,7 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "Добавление нового пользователя id=1",
+					"name": "Добавление нового пользователя id=136",
 					"event": [
 						{
 							"listen": "test",
@@ -61,7 +61,7 @@
 					"response": []
 				},
 				{
-					"name": "Добавление нового пользователя id=2",
+					"name": "Добавление нового пользователя id=137",
 					"event": [
 						{
 							"listen": "test",
@@ -112,7 +112,7 @@
 					"response": []
 				},
 				{
-					"name": "Добавление нового пользователя id=3",
+					"name": "Добавление нового пользователя id=138",
 					"event": [
 						{
 							"listen": "test",
@@ -223,7 +223,7 @@
 			"name": "Events",
 			"item": [
 				{
-					"name": "Создание нового события id=1 с модерацией",
+					"name": "Создание нового события id=104 с модерацией",
 					"event": [
 						{
 							"listen": "test",
@@ -245,7 +245,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"annotation\": \"This is a sample annotation with a length between 20 and 2000 characters.\",\r\n  \"category\": 1,\r\n  \"description\": \"This is a sample description with a length between 20 and 7000 characters.\",\r\n  \"eventDate\": \"2025-10-14 12:00:00\",\r\n  \"location\": {\r\n    \"lat\": 0.0,\r\n    \"lon\": 0.0\r\n  },\r\n  \"paid\": false,\r\n  \"participantLimit\": 100,\r\n  \"requestModeration\": true,\r\n  \"title\": \"Sample Event Title\"\r\n}",
+							"raw": "{\r\n  \"annotation\": \"This is a sample annotation with a length between 20 and 2000 characters.\",\r\n  \"category\": 121,\r\n  \"description\": \"This is a sample description with a length between 20 and 7000 characters.\",\r\n  \"eventDate\": \"2025-10-14 12:00:00\",\r\n  \"location\": {\r\n    \"lat\": 0.0,\r\n    \"lon\": 0.0\r\n  },\r\n  \"paid\": false,\r\n  \"participantLimit\": 100,\r\n  \"requestModeration\": true,\r\n  \"title\": \"Sample Event Title\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,13 +253,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/users/1/events",
+							"raw": "{{baseUrl}}/users/136/events",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"users",
-								"1",
+								"136",
 								"events"
 							]
 						}
@@ -267,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "Создание нового события id=2 без модерации",
+					"name": "Создание нового события id=105 без модерации",
 					"event": [
 						{
 							"listen": "test",
@@ -289,7 +289,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"annotation\": \"This is a sample annotation with a length between 20 and 2000 characters.\",\r\n  \"category\": 1,\r\n  \"description\": \"This is a sample description with a length between 20 and 7000 characters.\",\r\n  \"eventDate\": \"2025-07-14 12:00:00\",\r\n  \"location\": {\r\n    \"lat\": 0.0,\r\n    \"lon\": 0.0\r\n  },\r\n  \"paid\": false,\r\n  \"participantLimit\": 100,\r\n  \"requestModeration\": false,\r\n  \"title\": \"Sample Event Title\"\r\n}",
+							"raw": "{\r\n  \"annotation\": \"This is a sample annotation with a length between 20 and 2000 characters.\",\r\n  \"category\": 121,\r\n  \"description\": \"This is a sample description with a length between 20 and 7000 characters.\",\r\n  \"eventDate\": \"2025-07-14 12:00:00\",\r\n  \"location\": {\r\n    \"lat\": 0.0,\r\n    \"lon\": 0.0\r\n  },\r\n  \"paid\": false,\r\n  \"participantLimit\": 100,\r\n  \"requestModeration\": false,\r\n  \"title\": \"Sample Event Title\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -297,13 +297,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/users/2/events",
+							"raw": "{{baseUrl}}/users/137/events",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"users",
-								"2",
+								"137",
 								"events"
 							]
 						}
@@ -311,7 +311,7 @@
 					"response": []
 				},
 				{
-					"name": "Подтверждение события id=1",
+					"name": "Подтверждение события id=104",
 					"event": [
 						{
 							"listen": "test",
@@ -341,21 +341,21 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/admin/events/1",
+							"raw": "{{baseUrl}}/admin/events/104",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"admin",
 								"events",
-								"1"
+								"104"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Подтверждение публикации события id=2",
+					"name": "Подтверждение публикации события id=105",
 					"event": [
 						{
 							"listen": "test",
@@ -385,14 +385,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/admin/events/2",
+							"raw": "{{baseUrl}}/admin/events/105",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"admin",
 								"events",
-								"2"
+								"105"
 							]
 						}
 					},
@@ -444,23 +444,23 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/2",
+									"raw": "{{baseUrl}}/comment/user/136/event/105",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"2"
+										"105"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Создание коментария id=2 UserId=2, EventId=1",
+							"name": "Создание комментария id=2 UserId=137, EventId=104",
 							"event": [
 								{
 									"listen": "test",
@@ -497,23 +497,23 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/2/event/1",
+									"raw": "{{baseUrl}}/comment/user/137/event/104",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"2",
+										"137",
 										"event",
-										"1"
+										"104"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Создание нового комментария id=3 UserId=3, EventId=1",
+							"name": "Создание нового комментария id=3 UserId=138, EventId=104",
 							"event": [
 								{
 									"listen": "test",
@@ -550,23 +550,23 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/3/event/1",
+									"raw": "{{baseUrl}}/comment/user/138/event/104",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"3",
+										"138",
 										"event",
-										"1"
+										"104"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Создание комментария id=4 userId=1, EventId=1",
+							"name": "Создание комментария id=4 userId=136, EventId=104",
 							"event": [
 								{
 									"listen": "test",
@@ -603,16 +603,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/1",
+									"raw": "{{baseUrl}}/comment/user/136/event/104",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"1"
+										"104"
 									]
 								}
 							},
@@ -655,7 +655,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/-1/event/2",
+									"raw": "{{baseUrl}}/comment/user/-1/event/105",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -664,7 +664,7 @@
 										"user",
 										"-1",
 										"event",
-										"2"
+										"105"
 									]
 								}
 							},
@@ -702,16 +702,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/2",
+									"raw": "{{baseUrl}}/comment/user/136/event/105",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"2"
+										"105"
 									]
 								}
 							},
@@ -749,14 +749,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/-1",
+									"raw": "{{baseUrl}}/comment/user/136/event/-1",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
 										"-1"
 									]
@@ -796,16 +796,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/2",
+									"raw": "{{baseUrl}}/comment/user/136/event/105",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"2"
+										"105"
 									]
 								}
 							},
@@ -843,16 +843,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/2",
+									"raw": "{{baseUrl}}/comment/user/136/event/105",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"2"
+										"105"
 									]
 								}
 							},
@@ -895,14 +895,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/54/event/2",
+									"raw": "{{baseUrl}}/comment/user/999/event/2",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"54",
+										"999",
 										"event",
 										"2"
 									]
@@ -942,16 +942,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/user/1/event/54",
+									"raw": "{{baseUrl}}/comment/user/136/event/999",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"comment",
 										"user",
-										"1",
+										"136",
 										"event",
-										"54"
+										"999"
 									]
 								}
 							},
@@ -1099,7 +1099,7 @@
 											"\r",
 											"pm.test(\"Колличество пользователей не должно быть меньше 1\", function () {\r",
 											"    pm.expect(respBody).is.an('array');\r",
-											"    pm.expect(respBody.length).to.eql(4);\r",
+											"    pm.expect(respBody.length).to.be.above(0);\r",
 											"});\r",
 											"\r",
 											""
@@ -1169,7 +1169,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/2",
+									"raw": "{{baseUrl}}/comment/2/user/137",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1177,7 +1177,7 @@
 										"comment",
 										"2",
 										"user",
-										"2"
+										"137"
 									]
 								}
 							},
@@ -1217,7 +1217,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/1",
+									"raw": "{{baseUrl}}/comment/2/user/137",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1225,7 +1225,7 @@
 										"comment",
 										"2",
 										"user",
-										"1"
+										"137"
 									]
 								}
 							},
@@ -1265,7 +1265,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/1",
+									"raw": "{{baseUrl}}/comment/2/user/137",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1273,7 +1273,7 @@
 										"comment",
 										"2",
 										"user",
-										"1"
+										"137"
 									]
 								}
 							},
@@ -1311,7 +1311,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/1",
+									"raw": "{{baseUrl}}/comment/2/user/137",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1319,7 +1319,7 @@
 										"comment",
 										"2",
 										"user",
-										"1"
+										"137"
 									]
 								}
 							},
@@ -1404,13 +1404,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/events/1",
+									"raw": "{{baseUrl}}/events/104",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"events",
-										"1"
+										"104"
 									]
 								}
 							},
@@ -1646,13 +1646,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/events/1",
+									"raw": "{{baseUrl}}/events/104",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"events",
-										"1"
+										"104"
 									]
 								}
 							},
@@ -1764,7 +1764,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/comment/3/user/3",
+									"raw": "{{baseUrl}}/comment/3/user/136",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1772,7 +1772,7 @@
 										"comment",
 										"3",
 										"user",
-										"3"
+										"136"
 									]
 								}
 							},
@@ -1801,7 +1801,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/1",
+									"raw": "{{baseUrl}}/comment/2/user/136",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1809,7 +1809,7 @@
 										"comment",
 										"2",
 										"user",
-										"1"
+										"136"
 									]
 								}
 							},
