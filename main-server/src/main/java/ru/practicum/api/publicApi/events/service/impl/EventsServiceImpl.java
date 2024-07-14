@@ -11,17 +11,21 @@ import ru.practicum.AppClient;
 import ru.practicum.api.publicApi.events.service.EventsService;
 import ru.practicum.appDto.AppDtoReq;
 import ru.practicum.appDto.AppDtoResp;
+import ru.practicum.dto.comments.ShortCommentDto;
 import ru.practicum.dto.events.EventFulDto;
 import ru.practicum.dto.events.EventShortDto;
 import ru.practicum.exceptions.IncorrectlyRequestException;
 import ru.practicum.exceptions.NotFoundEntity;
+import ru.practicum.mapper.CommentMapper;
 import ru.practicum.mapper.EventsMapper;
 import ru.practicum.model.Event;
 import ru.practicum.model.enams.State;
+import ru.practicum.repository.CommentRepository;
 import ru.practicum.repository.EventsRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +35,7 @@ import java.util.Objects;
 public class EventsServiceImpl implements EventsService {
 
     private final EventsRepository eventsRepository;
+    private final CommentRepository commentRepository;
 
     private final AppClient client;
 
@@ -74,8 +79,10 @@ public class EventsServiceImpl implements EventsService {
         }
 
         saveView(request);
-
-        return EventsMapper.convertToListEventShortDto(listPage.getContent());
+        List<EventShortDto> eventShortDtos = EventsMapper.convertToListEventShortDto(listPage.getContent());
+        eventShortDtos
+                .forEach(eventShortDto -> eventShortDto.setComments(getCommentDto(eventShortDto.getId())));
+        return eventShortDtos;
     }
 
     @Override
@@ -89,7 +96,9 @@ public class EventsServiceImpl implements EventsService {
         if (!Objects.equals(updateEvent.getState(), State.PUBLISHED.name())) {
             throw new NotFoundEntity(String.format("Event id=%d state=PUBLISHED ", eventId));
         }
-        return EventsMapper.convertToEventFullDto(event);
+        EventFulDto eventFulDto = EventsMapper.convertToEventFullDto(event);
+        eventFulDto.setComments(getCommentDto(eventFulDto.getId()));
+        return eventFulDto;
     }
 
     private void saveView(HttpServletRequest request) {
@@ -120,5 +129,8 @@ public class EventsServiceImpl implements EventsService {
                 .orElse(0L);
     }
 
-
+    private Collection<ShortCommentDto> getCommentDto(Long eventId) {
+        return CommentMapper.toListShortCommentDto(commentRepository.findAllByEventIdAndState(eventId,
+                State.PUBLISHED.name()));
+    }
 }
