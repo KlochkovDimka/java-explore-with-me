@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.comments (
 	user_id               BIGINT NOT NULL,
 	event_id              BIGINT NOT NULL,
 	text_comment          TEXT NOT NULL,
-	state                 VARCHAR NOT NULL,
+	state                 VARCHAR(50) NOT NULL,
 	created_on            TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	CONSTRAINT comments_pk PRIMARY KEY (id),
 	CONSTRAINT comments_users_fk FOREIGN KEY (user_id) REFERENCES users(id),

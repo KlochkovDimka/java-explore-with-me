@@ -127,14 +127,15 @@ public class PrivateCommentServiceImpl implements PrivateCommentService {
             isUser(userId);
             isEvent(eventId);
             return commentRepository.findAllByUserIdAndEventId(userId, eventId);
-        } else if (eventId == null && userId == null) {
+        }
+        if (eventId == null && userId == null) {
             return commentRepository.findAll();
-        } else if (eventId != null) {
+        }
+        if (eventId != null) {
             isEvent(eventId);
             return commentRepository.findAllByEventId(eventId);
-        } else {
-            isUser(userId);
-            return commentRepository.findAllByUserId(userId);
         }
+        isUser(userId);
+        return commentRepository.findAllByUserId(userId);
     }
 }

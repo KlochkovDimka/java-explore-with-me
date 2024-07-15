@@ -3,6 +3,7 @@ package ru.practicum.api.adminApi.comments.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.api.adminApi.comments.service.AdminCommentService;
 import ru.practicum.dto.comments.CommentDto;
 import ru.practicum.dto.comments.CommentParam;
@@ -24,6 +25,7 @@ public class AdminCommentServiceImpl implements AdminCommentService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Collection<CommentDto> findAllCommentByParam(CommentParam commentParam, PageRequest pageRequest) {
 
         Collection<CommentEntity> comments = commentRepository.findAllCommentsByParam(commentParam.getState(),
@@ -40,6 +42,7 @@ public class AdminCommentServiceImpl implements AdminCommentService {
     }
 
     @Override
+    @Transactional
     public CommentDto commentUpdateStatus(Long comId, String state) {
         CommentEntity comment = isComment(comId);
         if (!comment.getState().equals(State.PENDING.name())) {
