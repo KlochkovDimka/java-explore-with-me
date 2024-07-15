@@ -1764,7 +1764,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/comment/3/user/136",
+									"raw": "{{baseUrl}}/comment/3/user/138",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1772,7 +1772,7 @@
 										"comment",
 										"3",
 										"user",
-										"136"
+										"138"
 									]
 								}
 							},
@@ -1801,7 +1801,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/comment/2/user/136",
+									"raw": "{{baseUrl}}/comment/2/user/138",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1809,7 +1809,7 @@
 										"comment",
 										"2",
 										"user",
-										"136"
+										"138"
 									]
 								}
 							},
