@@ -1,11 +1,10 @@
-package ru.practicum.dto.users;
+package ru.practicum.dto.comments;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -13,12 +12,8 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class NewUserRequest {
+public class UpdateCommentDto {
     @NotBlank
-    @Email
-    @Size(min = 6, max = 254)
-    private String email;
-    @NotBlank
-    @Size(min = 2, max = 250)
-    private String name;
+    @Size(min = 3, max = 2000)
+    private String value;
 }
